@@ -18,8 +18,8 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth')
      puppeteer.use(StealthPlugin())
   console.log(`[SCRAPPER-GS] : Searching Suggestion Item...`)
     let item = (await axios.get(`https://growtopia.fandom.com/api/v1/SearchSuggestions/List?query=${itemName}`)).data
-     itemName = item.items[0].title
-    if(itemName?.length < 1) 
+     itemName = item?.items[0]?.title
+    if(itemName?.length < 1 || itemName == undefined || itemName == null) 
     {
         return "Item not on Suggestion! Catching."
     }
