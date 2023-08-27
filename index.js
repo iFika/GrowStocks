@@ -45,6 +45,7 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth')
             var div = document.getElementsByClassName('price');
             
             return {
+              itemName: itemName,
                 price: div[0]?.textContent
              } // console.log inside evaluate, will show on browser console not on node console
           })  
